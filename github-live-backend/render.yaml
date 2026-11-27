@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: tuitiontracker-github-live-backend
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: GITHUB_TOKEN
+        sync: false
+      - key: GITHUB_OWNER
+        sync: false
+      - key: GITHUB_REPOS
+        sync: false
+      - key: GITHUB_BRANCH
+        value: main
+      - key: GITHUB_REGISTRY_REPO
+        sync: false
+      - key: STORAGE_SWITCH_THRESHOLD_BYTES
+        value: "900000000"
+      - key: CORS_ORIGIN
+        sync: false
